@@ -1,0 +1,62 @@
+.steps {
+	width: 450px;
+	height: 180px;
+	margin: 0 auto;
+	.step {
+		border-radius: 5px;
+		margin: 0 0 4% 3%;
+		border: 2px solid #38eacf;
+		display: inline-block;
+		vertical-align: top;
+		width: 16%;
+		height: 44%;
+		-webkit-animation: 0.8s create_step;
+   	-moz-animation: 0.8s create_step;
+   	-o-animation: 0.8s create_step;
+   	animation: 0.8s create_step;
+		img {
+			width: 80%;
+			display: block;
+			margin: 10px auto 0 auto;
+		}
+		.left {
+			transform: rotate(180deg);
+		}
+		.top {
+			transform: rotate(270deg);
+		}
+		.bottom {
+			transform: rotate(90deg);
+		}
+	}
+}
+.steps.steps-deleting {
+	-webkit-animation: 4s delete_steps forwards;
+  -moz-animation: 4s delete_steps forwards;
+  -o-animation: 4s delete_steps forwards;
+  animation: 4s delete_steps forwards;
+}
+
+@media screen and (max-width: 480px) {
+	.steps {
+		width: 320px;
+		height: 130px;
+		position:relative;
+		left: 2px;
+		.step {
+			img {
+				margin: 7px auto 0 auto;
+			}
+		}
+	}
+}
+
+@-webkit-keyframes create_step { from { border: 2px solid #de2666; } 45% { width: 17%; height: 47%; border: 2px solid #de2666; } to { width: 16%; height: 44%; border: 2px solid #38eacf; } }
+@-moz-keyframes create_step { from { border: 2px solid #de2666; } 45% { width: 17%; height: 47%; border: 2px solid #de2666; } to { width: 16%; height: 44%; border: 2px solid #38eacf; } }
+@-o-keyframes create_step { from { border: 2px solid #de2666; } 45% { width: 17%; height: 47%; border: 2px solid #de2666; } to { width: 16%; height: 44%; border: 2px solid #38eacf; } }
+@keyframes create_step { from { border: 2px solid #de2666; } 45% { width: 17%; height: 47%; border: 2px solid #de2666; } to { width: 16%; height: 44%; border: 2px solid #38eacf; } }
+
+@-webkit-keyframes delete_steps { 5% { opacity: 1; } 25% { opacity: 0; } to { width: 0; height: 0; opacity: 0; }  }
+@-moz-keyframes delete_steps { 5% { opacity: 1; } 25% { opacity: 0; } to { width: 0; height: 0; opacity: 0; }  }
+@-o-keyframes delete_steps { 5% { opacity: 1; } 25% { opacity: 0; } to { width: 0; height: 0; opacity: 0; }  }
+@keyframes delete_steps { 5% { opacity: 1; } 25% { opacity: 0; } to { width: 0; height: 0; opacity: 0; }  }
