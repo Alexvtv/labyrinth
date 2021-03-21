@@ -9,6 +9,13 @@ function App(props) {
 
 	const { steps, cells, startPosition } = props
 
+	const possibleSteps = [
+		{values: [0, 1], name:'bottom'},
+		{values: [0, -1], name:'top'},
+		{values: [1, 0], name:'right'},
+		{values: [-1, 0], name:'left'},
+	]
+
 	useEffect(() => {
 		if(steps.length < 10) {
 			setTimeout(() => stepGeneration(), 1000)
@@ -18,19 +25,13 @@ function App(props) {
 
 	const stepGeneration = () => {
 
-		// Сохраняем результат ф-ции createStep или вызываем ее повторно
+		// Сохраняем результат ф-ции createStep в стор или вызываем ее повторно
 
 		const createStep = () => {
 
-			// Идея функции: получить массив тип [x, y, direction]
-			// получив направление путем Math.random()
+			// Идея функции: вернуть массив типа [x, y, direction]
+			// данные взять функцией Math.random() из possibleSteps
 
-			let possibleSteps = [
-				{values: [0, 1], name:'bottom'},
-				{values: [0, -1], name:'top'},
-				{values: [1, 0], name:'right'},
-				{values: [-1, 0], name:'left'},
-			]
 			let newStep = possibleSteps[Math.floor(Math.random() * 4)]
 			let previousPosition = (steps[steps.length - 1] || cells[startPosition])
 			return [(previousPosition[0] + newStep.values[0]), (previousPosition[1] + newStep.values[1]),	newStep.name]
